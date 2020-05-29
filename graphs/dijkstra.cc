@@ -33,7 +33,7 @@ public:
             auto w = it->second;
             if(distance_[u] + w < distance_[v]){
               distance_[v] = distance_[u] + w;
-              pq.push(std::make_pair(distance_[u], v));
+              pq.push(std::make_pair(distance_[v], v));
             }
         }
       }
