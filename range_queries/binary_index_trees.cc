@@ -23,6 +23,7 @@ public:
 
 		for (int idx = 1; idx < m_array.size(); idx++) {
 			int idx2 = idx + (idx & -idx);
+      std::cout<<"Updating index :" <<idx2<<", from index:"<< idx<<", delta:"<< (idx & -idx)<<std::endl;
 			if (idx2 < m_array.size()) {
 				m_array[idx2] += m_array[idx];
 			}
@@ -75,12 +76,12 @@ void print(BIT const& bit, int length) {
 
 int main()
 {
-	std::vector<int> array{ 1, 7, 3, 0, 5, 8, 3, 2, 6, 2, 1, 1, 4, 5 };
+	  std::vector<int> array{ 1, 7, 3, 0, 5, 8, 3, 2, 6, 2, 1, 1, 4, 5 };
     int length = array.size();
-	BIT bit(array);
+	  BIT bit(array);
     print(bit, length);
 
-	bit.update(4, 2);
-	std::cout << "Add 2 to element at index 4" << std::endl << std::endl;
+	  bit.update(4, 2);
+	  std::cout << "Add 2 to element at index 4" << std::endl << std::endl;
     print(bit, length);
 }
