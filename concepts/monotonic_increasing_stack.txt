@@ -1,0 +1,3 @@
+https://leetcode.com/problems/largest-rectangle-in-histogram/
+
+This stack does not let violate the monotonicity. In case this is violated stack starts throwing out the values to regain monotonicity.
