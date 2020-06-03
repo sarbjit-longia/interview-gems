@@ -1,3 +1,7 @@
+/*
+ A minimum spanning tree is a special kind of tree that minimizes the lengths (or “weights”) of the edges of the tree. An example is a cable company wanting to lay line to multiple neighborhoods; by minimizing the amount of cable laid, the cable company will save money.
+*/
+
 #include "union_find.h"
 #include <vector>
 #include <set>
