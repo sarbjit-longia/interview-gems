@@ -32,12 +32,13 @@ public:
     
     // Find for n length
     int n = s.length();
-    for(int k = 3; k < s.length(); k++){
+    for(int k = 3; k <= s.length(); k++){
         for(int i = 0; i < n - k + 1; i++){
           int j = i + k -1;
           if(table[i+1][j-1] && s[i] == s[j]){
             start_index = i;
             max_length = k;
+            table[i][j] = true;
           }
         }
     }
@@ -49,7 +50,8 @@ private:
 };
 
 int main(){
-    LongestPalindrome l("AGHSHGYIU");
+    //LongestPalindrome l("AGHSHGYIU");
+    LongestPalindrome l("ccc");
     std::cout<<"Longest palindrome: "<< l.maxPalindrome()<<std::endl;
 
     return 0;
