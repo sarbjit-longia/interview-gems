@@ -1,1 +1,2 @@
 https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions
+https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns

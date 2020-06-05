@@ -1,0 +1,10 @@
+DP for beginners by @wh0ami - https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions [LIST - https://leetcode.com/list/x1k8lxi5]
+Graph for beginners by @wh0ami - https://leetcode.com/discuss/general-discussion/655708/graph-for-beginners-problems-pattern-sample-solutions/562734 [LIST - https://leetcode.com/list/x1wy4de7]
+Sliding window for beginners by @wh0ami - https://leetcode.com/discuss/general-discussion/657507/sliding-window-for-beginners-problems-template-sample-solutions/562721 [LIST - https://leetcode.com/list/x1lbzfk3]
+DP Patterns by @atalyk - https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns
+Leetcode patterns from edu_cative_dot_io by @late_riser - https://leetcode.com/discuss/general-discussion/457546/LeetCode-Problem-Patterns-from-***
+List of questions sorted by common patterns by @Maverick2594 - https://leetcode.com/discuss/career/448285/List-of-questions-sorted-by-common-patterns
+How to solve DP - String? Template and 4 Steps to be followed by @igooglethings - https://leetcode.com/discuss/general-discussion/651719/how-to-solve-dp-string-template-and-4-steps-to-be-followed
+Using bit manipulation to solve problems easily and efficiently by @LHearen - https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary%3A-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently
+Recursive approach to segment trees and range sum queries and lazy propagation - https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/
+How to use Leetcode efficiently and effectively by beginners by @megaspazz - https://leetcode.com/discuss/career/450215/How-to-use-LeetCode-to-help-yourself-efficiently-and-effectively-(for-beginners)
