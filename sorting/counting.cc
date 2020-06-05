@@ -9,10 +9,12 @@ void counting_sort(std::vector<int>& a){
   for(int i = 1; i <count.size(); i++){
       count[i] += count[i-1];
   }
-  
-  for(int i = 0; i < count.size(); i++){
-    a[count[i]] = i;
-    count[i]--;
+
+  auto temp = a;
+
+  for(int i = a.size() - 1; i >= 0; i--) {
+    a[count[temp[i]] - 1] = temp[i];
+    count[temp[i]]--;
   }
 }
 
