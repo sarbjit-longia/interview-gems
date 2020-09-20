@@ -13,7 +13,7 @@ class Student final
     Student(const Student&& rhs);       // Move constuctor
 
     Student& operator=(const Student& rhs);     // Assignment operator
-    Student& operator=(const Student&& rhs);    // Move assignment operator 
+    Student& operator=(const Student&& rhs);    // Move assignment operator
 
     bool operator==(const Student& rhs);        // Equality operator
     bool operator<(const Student& rhs);         // Comparison operator
@@ -70,7 +70,7 @@ Student& Student::operator=(const Student& rhs)
 {
   std::cout<<"Called assignment operator"<<std::endl;
   if(this == &rhs) return *this;
-  
+
   this->m_name = rhs.m_name;
   this->m_lastName = rhs.m_lastName;
   this->m_marks = rhs.m_marks;
@@ -82,13 +82,17 @@ Student& Student::operator=(const Student&& rhs)
   std::cout<<"Called move assignment"<<std::endl;
   if(this != &rhs)
   {
-    this->m_name = "n/a";
-    this->m_lastName = "n/a";
-    this->m_marks = -1;
+    this->m_name = rhs.m_name;
+    this->m_lastName = rhs.m_lastName;
+    this->m_marks = rhs.m_marks;
+
+    rhs.m_name = "n/a";
+    rhs.m_lastName = "n/a";
+    rhs.m_marks = -1;
   }
   return *this;
 }
-    
+
 bool Student::operator==(const Student& rhs)
 {
   return this->m_name == rhs.m_name && this->m_lastName == rhs.m_lastName && this->m_marks == rhs.m_marks;
