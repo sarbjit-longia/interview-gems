@@ -17,7 +17,8 @@ public:
         return res;
     }
 private:
-    void combinationSum(std::vector<int> &candidates, int target, std::vector<std::vector<int> > &res, std::vector<int> &combination, int begin) {
+    void combinationSum(std::vector<int> &candidates, int target, std::vector<std::vector<int> > &res,
+                            std::vector<int> &combination, int begin) {
         if (!target) {
             res.push_back(combination);
             return;

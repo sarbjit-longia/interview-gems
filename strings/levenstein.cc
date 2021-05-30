@@ -8,7 +8,7 @@ int levenstein(std::string a, std::string b){
     std::vector<std::vector<int> > tbl(na + 1, std::vector<int>(nb + 1, 0));
 
     for(unsigned int i = 1; i <= na; ++i) tbl[i][0] = i;
-	  for(unsigned int i = 1; i <= nb; ++i) tbl[0][i] = i;
+	for(unsigned int i = 1; i <= nb; ++i) tbl[0][i] = i;
 
     for(int i = 1; i <= na; i++){
         for(int j = 1; j <= nb; j++){
@@ -18,10 +18,10 @@ int levenstein(std::string a, std::string b){
               cost = 0;
             }
             tbl[i][j] = std::min({
-                    tbl[i-1][j] + 1, 
+                    tbl[i-1][j] + 1,
                     tbl[i][j-1] + 1,
                     tbl[i-1][j-1] + cost});
-            
+
         }
     }
 
