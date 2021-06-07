@@ -6,7 +6,12 @@
 #include <vector>
 #include <tuple>
 
-int main(int arc, char* argv[]){
+struct Student{
+    int grades;
+};
+
+int main(int arc, char *argv[])
+{
 
     std::vector<int > arr = {5, 2, 8, 3, 5, 7, 7, 1, 0, -10};
     std::sort(std::begin(arr), std::end(arr));
@@ -22,5 +27,16 @@ int main(int arc, char* argv[]){
 
     auto llb = std::lower_bound(std::begin(arr), std::end(arr), 4);
     std::cout<<"Trying to find non existing 4 returned location shall be less than value: "<< std::distance(arr.begin(), llb)<<std::endl;
+
+    std::vector<Student> students;
+    students.push_back({2});
+    students.push_back({5});
+    students.push_back({8});
+
+    auto lb2 = std::lower_bound(std::begin(students), std::end(students), 2, [](Student &s, int g)
+                                { return s.grades < g; });
+    std::cout<<"Grade 8 found at location: "<<std::distance(students.begin(), lb2)<<std::endl;
+
+
     return 0;
 }

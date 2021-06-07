@@ -14,38 +14,33 @@
 
 class Solution {
 public:
-    
-    int findIndex(int v){
-        for(int i = 0; i < inorder_.size(); i++){
-            if(inorder_[i] == v) return i;
-        }
-        return -1;
+    int preOrderIndex = 0;
+    map<int, int> inOrderIndexMap;
+
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        for (int i = 0; i < inorder.size(); i++)
+            inOrderIndexMap[inorder.at(i)] = i;
+
+        /* Create a tree from the preorder array */
+        return createTree(preorder, 0 , preorder.size() - 1);
     }
-    
-    TreeNode* util(int startIdx, int endIdx){
-        if(startIdx > endIdx) return nullptr;
-        
-        auto root = new TreeNode(preorder_[preIndex_++]);
-        
-        if(startIdx == endIdx) return root;
-        
-        auto idxInInorder = findIndex(root->val);
-        
-        root->left = util(startIdx, idxInInorder - 1);
-        root->right = util(idxInInorder + 1, endIdx);
+
+    TreeNode* createTree(vector<int> preOrderArr, int left, int right) {
+        /* Recursion breaking case */
+        if (left > right) return NULL;
+
+        /* Get the value at the preOrderIndex while incrementing it */
+        int rootVal = preOrderArr.at(preOrderIndex++);
+
+        /* Create the root of this (sub)-tree */
+        TreeNode* root = new TreeNode(rootVal);
+
+        /* Do the same for the left and right subtrees */
+        root -> left = createTree(preOrderArr, left, inOrderIndexMap[rootVal] - 1);
+        root -> right = createTree(preOrderArr, inOrderIndexMap[rootVal] + 1, right);
+
+        /* Return the root */
         return root;
     }
-    
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        preIndex_ = 0;
-        preorder_ = preorder;
-        inorder_ = inorder;
-        
-        return util(0, preorder.size() - 1);
-    }
-    
-    vector<int> preorder_;
-    vector<int> inorder_;
-    int preIndex_;
 };
 
