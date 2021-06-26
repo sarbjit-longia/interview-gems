@@ -22,13 +22,11 @@ public:
 
     //BFS Search
     double evaluate(string source, string destination){
-
         unordered_map<string, bool> visited;
         queue<pair<string, double>> vertexQueue;
 
         //Adding source to our queue
         vertexQueue.push({source, 1.0});
-
         //Core BFS Logic
         while(!vertexQueue.empty()){
 

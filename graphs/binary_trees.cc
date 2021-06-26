@@ -122,8 +122,8 @@ void BinaryTree::printPostOrder(){
 void BinaryTree::printPostOrder(Node* root){
     if(root == nullptr)
         return;
-    printInOrder(root->left_);
-    printInOrder(root->right_);
+    printPostOrder(root->left_);
+    printPostOrder(root->right_);
     std::cout << root->val_ << ", ";
 }
 

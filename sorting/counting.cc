@@ -3,18 +3,18 @@
 
 
 void counting_sort(std::vector<int>& a){
-  std::vector<int> count(10, 0);
-  for(auto e: a) count[e]++;
+  std::vector<int> index(10, 0);
+  for(auto e: a) index[e]++;
 
-  for(int i = 1; i <count.size(); i++){
-      count[i] += count[i-1];
+  for(int i = 1; i <index.size(); i++){
+      index[i] += index[i-1];
   }
 
   auto temp = a;
-
-  for(int i = a.size() - 1; i >= 0; i--) {
-    a[count[temp[i]] - 1] = temp[i];
-    count[temp[i]]--;
+  for (int i = 0; i < a.size(); i++){
+      auto pos = index[temp[i]] - 1;
+      index[temp[i]]--;
+      a[pos] = temp[i];
   }
 }
 
