@@ -1,73 +1,38 @@
-#include <iostream>
+#include <map>
 #include <vector>
 
-struct Node{
-    Node(char ch){
-        c = ch;
-        for (int i = 0; i < 26; i++)
-            childs[i] = nullptr;
-    }
-    char c;
-    Node *childs[26];
-};
+using namespace std;
 
-class Trie final {
-
+class Solution
+{
 public:
-    Trie (){
-        root = new Node(' ');
-    }
-    void addString(std::string name){
-        Node *temp = root;
-        for (int i = 0; i < name.length(); i++){
-            char curr = name[i];
-            if (temp->childs[curr - 'a'] == nullptr){
-                temp->childs[curr - 'a'] = new Node(curr);
-            }
-            temp = temp->childs[curr - 'a'];
+
+    unordered_map<string, int> cache;
+    int t[301][301];
+
+    bool solve(string str, int s, int e){
+        if(s > e) return false;
+
+        if(t[s][e]!=-1)
+            return t[s][e];
+
+        if(cache.find(str.substr(s, e - s + 1)) != cache.end()) return true;
+        bool ans=false;
+
+        for(int i = s; i < e; i++){
+            auto l = (t[s][i] != -1 )? t[s][i] : solve(str, s, i);
+            auto r = (t[i+1][e] != -1 )? t[i+1][e] : solve(str, i + 1, e);
+            if(l && r) ans = true;
         }
+        t[s][e] = ans;
+        return ans;
     }
 
-    int findDifferentIndex(std::string name){
-        //std::cout << " Finding name: " << name << std::endl;
-        Node *temp = root;
-        for (int i = 0; i < name.length(); i++) {
-            char curr = name[i];
-            if(temp->childs[curr - 'a'] == nullptr)
-                return i;
-            temp = temp->childs[curr - 'a'];
-        }
-        return name.length();
-    }
+    bool wordBreak(string s, vector<string>& wordDict) {
+        if(s.length() == 0) return true;
+        memset(t,-1,sizeof(t));
 
-    bool isStemmingPossible(std::string name){
-        int index = 0;
-
-        while(name.length() >= 0){
-            int curr_index = findDifferentIndex(name);
-            if(curr_index == name.length())
-                break;
-            //std::cout << "Curr index: " << curr_index << " index: " << index << std::endl;
-            if (curr_index == index)
-                return false;
-            index = curr_index;
-            name = name.substr(index);
-        }
-        return true;
+        for(auto str: wordDict) cache[str]++;
+        return solve(s, 0, s.length() - 1);
     }
-private:
-    Node *root;
 };
-
-
-int main(){
-    Trie t;
-    t.addString("apple");
-    t.addString("apple");
-    t.addString("peer");
-    t.addString("pie");
-
-    std::cout << "Applepie can be segmented: " << t.isStemmingPossible("applepie") << std::endl;
-    std::cout << "Applepear can be segmented: " << t.isStemmingPossible("applepear") << std::endl;
-    return 0;
-}
