@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/continuous-subarray-sum/submissions/
+//https://leetcode.com/ /continuous-subarray-sum/submissions/
 
 class Solution {
 public:

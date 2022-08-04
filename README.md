@@ -9,6 +9,9 @@ https://github.com/AnthonyCalandra/modern-cpp-features
 
 ## Algorithms
 https://www.scaler.com/topics/data-structures/hamiltonian-path/
+https://techiedelight.quora.com/500-Data-Structures-and-Algorithms-interview-questions-and-their-solutions
 
 ## System Design
 https://www.code-recipe.com/blog
+https://kubernetes.io/docs/concepts/services-networking/ingress/
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
